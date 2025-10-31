@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hayrom Group — SaaS e IA Personalizadas</title>
+  <meta name="description" content="Transforme sua empresa com SaaS white-label e inteligência artificial proprietária da HayromIA." />
+  <meta name="keywords" content="Hayrom Group, HayromIA, SaaS, inteligência artificial, white-label" />
+  <meta property="og:title" content="Hayrom Group — SaaS e IA Personalizadas" />
+  <meta property="og:description" content="Plataformas exclusivas com base na HayromIA — tecnologia proprietária da Hayrom Group." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hayrom.group" />
+  <meta property="og:image" content="https://hayrom.group/og-image.jpg" />
+  <meta property="og:site_name" content="Hayrom Group" />
+  <link rel="canonical" href="https://hayrom.group" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0B0F1A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="./hayrom-logo.png?v=2" sizes="32x32">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Hayrom Group",
+      "description": "Soluções SaaS white-label inteligentes com IA proprietária HayromIA.",
+      "url": "https://hayrom.group",
+      "logo": "https://hayrom.group/logo.png",
+      "sameAs": [
+        "https://instagram.com/hayromgroup",
+        "https://www.linkedin.com/company/hayromgroup"
+      ]
+    }
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --color-bg: #0b0f1a;
+      --color-surface: rgba(16, 21, 35, 0.75);
+      --color-border: rgba(125, 145, 255, 0.2);
+      --color-primary: #7b61ff;
+      --color-secondary: #4f9cf9;
+      --color-cyan: #22d3ee;
+      --color-text: #f5f7ff;
+      --color-muted: #9aa4c3;
+      --shadow-soft: 0 24px 64px rgba(2, 10, 28, 0.45);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      scroll-behavior: smooth;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top right, rgba(123, 97, 255, 0.25), transparent 40%),
+        radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.18), transparent 45%),
+        var(--color-bg);
+      color: var(--color-text);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      background: radial-gradient(circle at 18% 12%, rgba(123, 97, 255, 0.22), transparent 55%),
+        radial-gradient(circle at 82% 22%, rgba(79, 156, 249, 0.2), transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(34, 211, 238, 0.18), transparent 60%);
+      opacity: 0.75;
+      filter: saturate(110%);
+    }
+
+    body::after {
+      background: linear-gradient(120deg, rgba(11, 15, 26, 0.8), rgba(11, 15, 26, 0.35));
+      filter: blur(120px);
+      transform: translate3d(0, 0, 0);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(120deg, rgba(11, 15, 26, 0.96), rgba(11, 15, 26, 0.72));
+      border-bottom: 1px solid rgba(123, 97, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo span {
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(123, 97, 255, 0.35), rgba(79, 156, 249, 0.35));
+      border: 1px solid rgba(123, 97, 255, 0.4);
+      font-size: 0.8rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: clamp(1rem, 3vw, 2.5rem);
+      padding: 0;
+      margin: 0;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      position: relative;
+      color: var(--color-muted);
+      transition: color 0.25s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -0.4rem;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--color-text);
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      transform: scaleX(1);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(123, 97, 255, 0.35);
+      padding: 0.5rem 0.7rem;
+      border-radius: 12px;
+      color: var(--color-text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    main {
+      padding-top: 5rem;
+    }
+
+    section {
+      padding: clamp(4rem, 9vw, 7rem) 0;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+      text-align: center;
+      background: linear-gradient(120deg, #fff, rgba(255, 255, 255, 0.65));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .subheading {
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      color: var(--color-muted);
+      font-size: 1.05rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(2rem, 6vw, 3rem);
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 5vw, 3.7rem);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-content p {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.85rem 1.8rem;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      box-shadow: 0 16px 40px rgba(79, 156, 249, 0.45);
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background: rgba(16, 26, 43, 0.75);
+      border: 1px solid rgba(123, 97, 255, 0.4);
+      color: var(--color-text);
+    }
+
+    .btn:hover,
+    .btn:focus {
+      transform: translateY(-3px);
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: clamp(1.8rem, 4vw, 2.4rem);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(140deg, rgba(123, 97, 255, 0.2), rgba(34, 211, 238, 0.18));
+      border: 1px solid rgba(123, 97, 255, 0.35);
+      backdrop-filter: blur(28px);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      inset: -45%;
+      background: radial-gradient(circle at 30% 30%, rgba(123, 97, 255, 0.35), transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.28), transparent 60%);
+      filter: blur(60px);
+      opacity: 0.65;
+      z-index: -2;
+      animation: pulseGlow 12s ease-in-out infinite;
+    }
+
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border-radius: calc(var(--radius-xl) - 16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-visual-content {
+      position: relative;
+      display: grid;
+      gap: 1.4rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(11, 15, 26, 0.65);
+      border: 1px solid rgba(79, 156, 249, 0.4);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      justify-self: start;
+      animation: float 6.8s ease-in-out infinite;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      padding: 1rem;
+      background: rgba(11, 15, 26, 0.55);
+      border: 1px solid rgba(79, 156, 249, 0.22);
+      border-radius: var(--radius-md);
+    }
+
+    .stat-card strong {
+      font-size: 1.6rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-card span {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .card {
+      padding: clamp(1.6rem, 4vw, 2.2rem);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(123, 97, 255, 0.25);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-status-card {
+      background: rgba(11, 15, 26, 0.55);
+      border-color: rgba(123, 97, 255, 0.35);
+      backdrop-filter: blur(18px);
+      isolation: isolate;
+    }
+
+    .hero-status-card strong {
+      color: rgba(255, 255, 255, 0.86);
+      letter-spacing: 0.04em;
+    }
+
+    .hero-status-card::before {
+      content: '';
+      position: absolute;
+      inset: -60px;
+      background: radial-gradient(circle at 75% 25%, rgba(79, 156, 249, 0.25), transparent 60%);
+      opacity: 0.6;
+      filter: blur(40px);
+      z-index: -1;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(123, 97, 255, 0.1), rgba(79, 156, 249, 0.1) 45%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(123, 97, 255, 0.3), rgba(34, 211, 238, 0.3));
+      border: 1px solid rgba(123, 97, 255, 0.4);
+      box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
+    }
+
+    .card-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.6;
+    }
+
+    .steps {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .step {
+      position: relative;
+      padding: 1.8rem;
+      border-radius: var(--radius-lg);
+      background: rgba(11, 15, 26, 0.6);
+      border: 1px solid rgba(123, 97, 255, 0.28);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .step-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      letter-spacing: 0.18em;
+      color: var(--color-cyan);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .feature {
+      padding: 1.6rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(79, 156, 249, 0.25);
+      background: rgba(11, 15, 26, 0.65);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.35), transparent 55%);
+      transform: scale(0.8);
+      transition: transform 0.4s ease;
+    }
+
+    .feature:hover::before,
+    .feature:focus-within::before {
+      transform: scale(1);
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(123, 97, 255, 0.4), rgba(79, 156, 249, 0.4));
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .feature-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.5;
+    }
+
+    .feature-icon svg {
+      animation: iconPulse 5s ease-in-out infinite;
+    }
+
+    .feature:nth-child(even) .feature-icon svg {
+      animation-delay: 1.2s;
+    }
+
+    .feature:nth-child(3n) .feature-icon svg {
+      animation-duration: 6.2s;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .plan-card {
+      padding: 2.2rem;
+      border-radius: var(--radius-lg);
+      background: rgba(11, 15, 26, 0.68);
+      border: 1px solid rgba(123, 97, 255, 0.28);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 1.6rem;
+      position: relative;
+    }
+
+    .plan-card.popular {
+      border: 1px solid rgba(34, 211, 238, 0.55);
+      background: linear-gradient(150deg, rgba(123, 97, 255, 0.36), rgba(34, 211, 238, 0.24));
+      transform: translateY(-8px);
+    }
+
+    .badge {
+      position: absolute;
+      top: -0.9rem;
+      right: 1.6rem;
+      background: linear-gradient(135deg, var(--color-cyan), var(--color-secondary));
+      color: #0b0f1a;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    .plan-price {
+      font-size: 2.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .plan-price span {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.75rem;
+      color: var(--color-text);
+    }
+
+    .plan-features li::before {
+      content: '✔';
+      margin-right: 0.6rem;
+      color: var(--color-cyan);
+    }
+
+    .faq {
+      max-width: 820px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(79, 156, 249, 0.25);
+      background: rgba(11, 15, 26, 0.65);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1.4rem 1.8rem;
+      color: var(--color-text);
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .faq-question span {
+      color: var(--color-muted);
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.8rem;
+      color: var(--color-muted);
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq-item[aria-expanded="true"] .faq-answer {
+      max-height: 220px;
+      padding: 0 1.8rem 1.4rem;
+    }
+
+    .faq-item[aria-expanded="true"] .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    footer {
+      border-top: 1px solid rgba(123, 97, 255, 0.22);
+      background: rgba(11, 15, 26, 0.85);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 1.4rem;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      color: var(--color-muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(16, 26, 43, 0.6);
+      border: 1px solid rgba(123, 97, 255, 0.25);
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus {
+      color: var(--color-text);
+      border-color: rgba(123, 97, 255, 0.45);
+    }
+
+    @media (max-width: 960px) {
+      nav ul {
+        position: fixed;
+        inset: 72px 1.5rem auto;
+        padding: 1.5rem;
+        border-radius: var(--radius-md);
+        background: rgba(11, 15, 26, 0.92);
+        border: 1px solid rgba(123, 97, 255, 0.25);
+        box-shadow: var(--shadow-soft);
+        flex-direction: column;
+        gap: 1.2rem;
+        transform: translateY(-24px) scale(0.98);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      nav ul.open {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        top: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-visual {
+        padding: 1.4rem;
+      }
+
+      .cta-group {
+        flex-direction: column;
+      }
+
+      .plan-card {
+        padding: 1.8rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .feature-icon svg,
+      .hero-chip {
+        animation: none !important;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.55;
+      }
+      45% {
+        opacity: 0.85;
+      }
+    }
+
+    @keyframes iconPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.08);
+        opacity: 0.85;
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="logo" aria-label="Hayrom Group">
+        Hayrom Group <span>HayromIA</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-navigation" aria-label="Abrir navegação principal">MENU</button>
+      <nav aria-label="Navegação principal">
+        <ul id="main-navigation">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="container hero" aria-labelledby="hero-title">
+      <div class="hero-content fade-up" id="hero-title">
+        <h1>Transforme sua empresa com SaaS e IA personalizadas</h1>
+        <p>Plataformas exclusivas com base na HayromIA — tecnologia proprietária criada pela Hayrom Group.</p>
+        <div class="cta-group">
+          <a class="btn btn-primary"
+   href="https://wa.me/+5577981621007?text=Ol%C3%A1!%20Gostaria%20de%20testar%20a%20HayromIA.%20Como%20funciona%20o%20acesso%3F"
+   target="_blank" rel="noopener">
+  Testar grátis por 7 dias 
+          </a>
+          <a class="btn btn-secondary" href="#planos">Ver planos</a>
+        </div>
+      </div>
+      <div class="hero-visual fade-up" role="presentation" aria-hidden="true">
+        <div class="hero-visual-content">
+          <span class="hero-chip">Painel HayromIA em tempo real</span>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <strong>98%</strong>
+              <span>White-label completo</span>
+            </div>
+            <div class="stat-card">
+              <strong>3,4x</strong>
+              <span>Mais rápido no go-to-market</span>
+            </div>
+            <div class="stat-card">
+              <strong>IA+</strong>
+              <span>Decisões assistidas 24/7</span>
+            </div>
+          </div>
+          <div class="card hero-status-card">
+            <strong style="font-family: 'JetBrains Mono', monospace;">Status • HayromIA</strong>
+            <p style="color: var(--color-muted);">Monitoramento ativo, insights de churn e automações configuradas. Próxima atualização personalizada em 2h.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferenciais">
+      <div class="container fade-up">
+        <h2 class="section-title">Diferenciais que elevam seu negócio</h2>
+        <p class="subheading">Um ecossistema completo de tecnologia white-label com inteligência proprietária para você lançar e escalar produtos digitais com assinatura premium.</p>
+        <div class="card-grid" role="list">
+          <article class="card" role="listitem">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>White-label real</h3>
+            <p>Controle total da identidade visual e da experiência do usuário, com camadas modulares prontas para o seu branding.</p>
+          </article>
+          <article class="card" role="listitem">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 3l7.5 4.5v9L12 21l-7.5-4.5v-9z" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Base HayromIA</h3>
+            <p>Algoritmos proprietários com aprendizado contínuo, criando experiências inteligentes e personalizadas para cada cliente.</p>
+          </article>
+          <article class="card" role="listitem">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 3v6h6M19 21v-6h-6M19 3l-6 6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Atualizações contínuas</h3>
+            <p>Entregas mensais com roadmap colaborativo e acesso antecipado a recursos construídos com feedback real.</p>
+          </article>
+          <article class="card" role="listitem">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M6 9a6 6 0 0 1 12 0v6a6 6 0 0 1-12 0V9z" />
+                <path d="M12 6v6l3 3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Suporte humano + IA</h3>
+            <p>Especialistas dedicados e assistentes inteligentes atuam juntos para garantir respostas rápidas e precisas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona">
+      <div class="container fade-up">
+        <h2 class="section-title">Como funciona</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-number">01</span>
+            <h3>Escolha do plano</h3>
+            <p>Selecione o plano que melhor se adapta à sua operação e objetivos de crescimento.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">02</span>
+            <h3>Personalização com HayromIA</h3>
+            <p>Nosso time configura fluxos, integrações e modelos IA sob medida com base nos seus dados.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">03</span>
+            <h3>Lançamento e suporte</h3>
+            <p>Coloque seu SaaS no ar com monitoramento 24/7, atualização contínua e suporte híbrido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="funcionalidades">
+      <div class="container fade-up">
+        <h2 class="section-title">Funcionalidades avançadas</h2>
+        <p class="subheading">Conjunto completo de recursos para acelerar suas vendas, otimizar a retenção e automatizar decisões estratégicas.</p>
+        <div class="features-grid">
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 5h14v4H5zM5 15h14v4H5z" />
+                <path d="M9 9v6" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Propostas com IA</h3>
+            <p>Gere propostas comerciais inteligentes, personalizadas e com previsões de conversão.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 19h16M6 5h12l2 4H4z" stroke-linejoin="round" />
+                <path d="M10 11h4v4h-4z" />
+              </svg>
+            </div>
+            <h3>Dashboard</h3>
+            <p>Visualize indicadores críticos em um painel interativo com drill-down completo.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7h16M4 12h10M4 17h6" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Funil de Vendas</h3>
+            <p>Orquestre jornadas complexas com automações acionadas por IA e insights de conversão.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M6 8l6-4 6 4v8l-6 4-6-4z" />
+                <path d="M12 4v16" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Integrações</h3>
+            <p>Conecte-se a CRMs, ERPs e ferramentas de marketing com nossos conectores prontos.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 16c1.5-4 4.5-6 8-6s6.5 2 8 6" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="12" cy="9" r="3" />
+              </svg>
+            </div>
+            <h3>Análise de Churn</h3>
+            <p>Antecipe cancelamentos com previsões detalhadas e planos de ação sugeridos.</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 12h16" stroke-linecap="round" />
+                <path d="M12 4v16" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Automação com IA</h3>
+            <p>Dispare fluxos e insights automáticos com base no comportamento do seu cliente final.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="planos">
+  <div class="container fade-up">
+    <h2 class="section-title">Planos e preços</h2>
+    <p class="subheading">Escolha o plano ideal para o crescimento do seu negócio.</p>
+
+    <div class="plans">
+      <!-- Essencial -->
+      <article class="plan-card" aria-label="Plano Essencial">
+        <h3>Essencial</h3>
+        <p class="plan-price">R$147 <span>/mês</span></p>
+        <ul class="plan-features">
+          <li>White-label com módulos principais</li>
+          <li>2 integrações nativas</li>
+          <li>Dashboards essenciais</li>
+          <li>Suporte híbrido horário comercial</li>
+        </ul>
+        <a class="btn btn-primary"
+           href="https://buy.stripe.com/test_eVq5kFfnkdKG3Iyao1bo400"
+           target="_blank" rel="noopener">
+          Compre já
+        </a>
+      </article>
+
+      <!-- Profissional -->
+      <article class="plan-card popular" aria-label="Plano Profissional">
+        <div class="badge" aria-hidden="true">Mais Popular</div>
+        <h3>Profissional</h3>
+        <p class="plan-price">R$269 <span>/mês</span></p>
+        <ul class="plan-features">
+          <li>Todas as funcionalidades Essencial</li>
+          <li>5 integrações + APIs avançadas</li>
+          <li>Modelos HayromIA personalizados</li>
+          <li>Suporte 24/7 com especialista dedicado</li>
+        </ul>
+        <a class="btn btn-primary"
+           href="https://buy.stripe.com/test_6oUfZjfnk9uqfrg1Rvbo401"
+           target="_blank" rel="noopener">
+          Compre já
+        </a>
+      </article>
+
+      <!-- Empresarial -->
+      <article class="plan-card" aria-label="Plano Empresarial">
+        <h3>Empresarial</h3>
+        <p class="plan-price">R$479 <span>/mês</span></p>
+        <ul class="plan-features">
+          <li>Clusters dedicados e SLA premium</li>
+          <li>Integrações ilimitadas e SSO</li>
+          <li>Roadmap conjunto e squads ágeis</li>
+          <li>Consultoria estratégica trimestral</li>
+        </ul>
+        <a class="btn btn-primary"
+           href="https://buy.stripe.com/test_aFa6oJ1wueOKcf4fIlbo402"
+           target="_blank" rel="noopener">
+          Compre já
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+    <section id="faq">
+      <div class="container fade-up">
+        <h2 class="section-title">Perguntas frequentes</h2>
+        <div class="faq" role="list">
+          <article class="faq-item" aria-expanded="false">
+            <button class="faq-question" aria-controls="faq1" aria-expanded="false">
+              Qual a duração do teste gratuito?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div id="faq1" class="faq-answer" role="region" aria-live="polite">
+              <p>O teste tem duração de 7 dias completos com acesso a nosso modelo base.</p>
+            </div>
+          </article>
+          <article class="faq-item" aria-expanded="false">
+            <button class="faq-question" aria-controls="faq2" aria-expanded="false">
+              A personalização é realmente white-label?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div id="faq2" class="faq-answer" role="region" aria-live="polite">
+              <p>Sim. Aplicamos sua identidade visual completa, domínios customizados, fluxos, textos e parâmetros de IA sem menções à Hayrom Group.</p>
+            </div>
+          </article>
+          <article class="faq-item" aria-expanded="false">
+            <button class="faq-question" aria-controls="faq3" aria-expanded="false">
+              Como funcionam as integrações?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div id="faq3" class="faq-answer" role="region" aria-live="polite">
+              <p>Oferecemos conectores prontos com CRMs, ERPs, plataformas de marketing e disponibilizamos APIs REST e Webhooks para integrações sob medida.</p>
+            </div>
+          </article>
+          <article class="faq-item" aria-expanded="false">
+            <button class="faq-question" aria-controls="faq4" aria-expanded="false">
+              Qual o tipo de suporte disponível?
+              <span aria-hidden="true">+</span>
+            </button>
+            <div id="faq4" class="faq-answer" role="region" aria-live="polite">
+              <p>Suporte híbrido com especialistas e agentes HayromIA em português, com SLA prioritário em planos Profissional e Empresarial.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato">
+    <div class="container footer-grid">
+      <p>Converse com a Hayrom Group e personalize sua plataforma.</p>
+      <div class="footer-links" aria-label="Redes e contato">
+        <a href="https://wa.me/+5577981621007?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20e%20gostaria%20de%20contatar%20o%20suporte%20da%20Hayrom%20Group." target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">WhatsApp</a>
+        <a href="https://instagram.com/hayromgroup" target="_blank" rel="noopener" aria-label="Visite nosso Instagram">Instagram</a>
+        <a href="mailto:contato@hayrom.group" aria-label="Envie um e-mail para contato@hayrom.group">E-mail</a>
+      </div>
+      <small style="color: var(--color-muted);">© 2025 Hayrom Group. Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.getElementById('main-navigation');
+    const fadeElements = document.querySelectorAll('.fade-up');
+
+    if (menuToggle && navList) {
+      const updateMenuState = (isOpen) => {
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar navegação principal' : 'Abrir navegação principal');
+      };
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navList.classList.toggle('open');
+        updateMenuState(isOpen);
+      });
+
+      navList.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 960 && navList.classList.contains('open')) {
+            navList.classList.remove('open');
+            updateMenuState(false);
+          }
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 960 && navList.classList.contains('open')) {
+          navList.classList.remove('open');
+          updateMenuState(false);
+        }
+      });
+
+      updateMenuState(false);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    fadeElements.forEach((el) => observer.observe(el));
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+      const button = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      button.addEventListener('click', () => {
+        const expanded = item.getAttribute('aria-expanded') === 'true';
+
+        faqItems.forEach((other) => {
+          if (other !== item) {
+            other.setAttribute('aria-expanded', 'false');
+            const otherButton = other.querySelector('.faq-question');
+            if (otherButton) {
+              otherButton.setAttribute('aria-expanded', 'false');
+            }
+            const otherAnswer = other.querySelector('.faq-answer');
+            if (otherAnswer) {
+              otherAnswer.style.maxHeight = null;
+            }
+          }
+        });
+
+        item.setAttribute('aria-expanded', String(!expanded));
+        button.setAttribute('aria-expanded', String(!expanded));
+
+        if (!expanded) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = null;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout • Hayrom</title>
+  <meta name="description" content="Escolha seu plano, pague com segurança via Stripe e inicie seu ambiente white-label com a equipe Hayrom.">
+  <link rel="icon" href="./hayrom-logo.png" />
+
+  <style>
+    /* ========= Tokens ========= */
+    :root{
+      --bg: #070b14;
+      --bg-2: #0b1222;
+      --glass: rgba(255,255,255,.04);
+      --card: #0c1428;
+      --stroke: rgba(255,255,255,.08);
+      --text: #eaf3ff;
+      --muted: #a7b8cf;
+      --brand: #00b1fa;
+      --brand-2: #7b61ff;
+      --ok: #45d1a6;
+      --radius: 18px;
+      --shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+
+    /* ========= Reset ========= */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font: 400 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 85% -10%, rgba(123,97,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 10% 110%, rgba(0,177,250,.15), transparent 60%),
+        var(--bg);
+      -webkit-font-smoothing:antialiased;
+    }
+    a{ color:inherit; text-decoration:none }
+    img{ display:block; max-width:100% }
+
+    .container{ width:1200px; max-width:92vw; margin:0 auto }
+
+    /* ========= Header ========= */
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(9,14,27,.7);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav{
+      height:68px; display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
+    }
+    .brand{ display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px; }
+    .brand img{ width:28px; height:28px; border-radius:8px; filter: drop-shadow(0 6px 18px rgba(0,177,250,.2)); }
+    .support a{
+      display:inline-flex; align-items:center; gap:8px;
+      font-weight:700; font-size:14px;
+      border:1px solid rgba(0,177,250,.35); color:var(--brand);
+      padding:8px 12px; border-radius:10px; transition:.2s;
+    }
+    .support a:hover{ background:rgba(0,177,250,.08) }
+
+    /* ========= Hero ========= */
+    .hero{ padding:48px 0 8px; text-align:center }
+    .hero h1{ font-size: clamp(28px, 3.6vw, 44px); letter-spacing:.2px; }
+    .hero p{ color:var(--muted); max-width:720px; margin:12px auto 16px }
+    .hero small{ color:var(--muted); opacity:.9 }
+
+    /* ========= Plans ========= */
+    .plans{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap:24px; margin:28px auto 16px; align-items:stretch;
+    }
+    @media (max-width:1000px){ .plans{ grid-template-columns:1fr } }
+
+    .card{
+      position:relative; overflow:hidden;
+      background: linear-gradient(160deg, var(--glass), transparent 38%), var(--card);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius); padding:22px;
+      box-shadow:var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card::before{
+      content:""; position:absolute; inset:-1px; z-index:0;
+      background:
+        radial-gradient(560px 180px at 50% -10%, rgba(123,97,255,.25), transparent 60%),
+        radial-gradient(560px 160px at 10% 110%, rgba(0,177,250,.25), transparent 60%);
+      opacity:.45; pointer-events:none;
+    }
+    .card>*{ position:relative; z-index:1 }
+    .card:hover{ transform:translateY(-2px); border-color:rgba(123,97,255,.35) }
+
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800;
+      color:#fff; background: linear-gradient(90deg,var(--brand-2),var(--brand));
+      box-shadow: 0 6px 20px rgba(123,97,255,.35);
+      margin-bottom:10px;
+    }
+    .title{ font-size:20px; font-weight:800; margin-bottom:4px }
+    .price{ font-size:28px; font-weight:800; margin-bottom:12px }
+    .price span{ font-size:14px; color:var(--muted); font-weight:600 }
+
+    .feat{ list-style:none; display:grid; gap:10px; margin:12px 0 18px }
+    .feat li{ display:flex; gap:10px; color:#e6efff }
+    .feat li:before{ content:"✔"; color:var(--ok); margin-top:2px; font-weight:900 }
+
+    .cta{
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 16px; font-weight:900; border-radius:12px;
+      background: linear-gradient(90deg,var(--brand),var(--brand-2)); color:#041118;
+      transition:.2s; border:0; cursor:pointer;
+    }
+    .cta:hover{ filter:brightness(1.08); transform:translateY(-1px) }
+
+    .secure{
+      color:var(--muted); font-size:13px; text-align:center; margin:26px 0 0;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .secure i{
+      width:10px; height:10px; border-radius:999px; background:var(--ok);
+      box-shadow:0 0 0 3px rgba(69,209,166,.18);
+    }
+
+    /* ========= Section: reasons ========= */
+    .section{ margin:56px 0 32px }
+    .section h2{ text-align:center; font-size:26px; margin-bottom:8px }
+    .section p{ text-align:center; color:var(--muted); margin-bottom:18px }
+    .grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:1100px; margin:0 auto;
+    }
+    @media (max-width:1000px){ .grid{ grid-template-columns:1fr } }
+
+    .mini{
+      background: linear-gradient(160deg, var(--glass), transparent 40%), var(--bg-2);
+      border:1px solid var(--stroke); border-radius:16px; padding:20px;
+    }
+    .mini h3{ font-size:18px; margin-bottom:6px }
+    .mini p{ color:var(--muted); text-align:left }
+    .mini ul{ margin-top:10px; display:grid; gap:8px; list-style:none }
+    .mini li{ color:#dfe9ff; font-size:14px; display:flex; gap:8px }
+    .mini li:before{ content:"•"; color:var(--brand-2); margin-top:-1px; font-weight:900 }
+
+    /* ========= Highlight by hash (#essencial etc) ========= */
+    .pulse{ animation:pulse 1.2s ease-out 0s 3 }
+    @keyframes pulse {
+      0%{ box-shadow:0 0 0 0 rgba(0,177,250,.0) }
+      40%{ box-shadow:0 0 0 16px rgba(0,177,250,.12) }
+      100%{ box-shadow:0 0 0 0 rgba(0,177,250,.0) }
+    }
+
+    footer{ border-top:1px solid var(--stroke); padding:18px 0 28px; color:var(--muted); text-align:center }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="./hayrom-logo.png" alt="Hayrom">
+        Hayrom Group
+      </div>
+      <div class="support">
+        <a href="https://wa.me/+5577981621007" target="_blank" rel="noopener">Suporte via WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero container">
+    <h1>Escolha seu plano e finalize em um clique.</h1>
+    <p>Checkout seguro via Stripe. Após o pagamento, você será guiado automaticamente pelo WhatsApp para iniciar seu ambiente white-label com a equipe Hayrom.</p>
+    <small>Cartão • Pix • Boleto • Antifraude ativo</small>
+  </section>
+
+  <!-- ===== Plans ===== -->
+  <main class="container">
+    <div class="plans" id="plans">
+      <!-- Essencial -->
+      <article class="card" id="card-essencial">
+        <h3 class="title">Essencial</h3>
+        <p class="price">R$147 <span>/mês</span></p>
+        <ul class="feat">
+          <li>White-label com módulos principais</li>
+          <li>2 integrações nativas</li>
+          <li>Dashboards essenciais</li>
+          <li>Suporte híbrido horário comercial</li>
+        </ul>
+        <a class="cta" href="https://buy.stripe.com/test_eVq5kFfnkdKG3Iyao1bo400" target="_blank" rel="noopener">
+          Comprar Essencial
+        </a>
+      </article>
+
+      <!-- Profissional -->
+      <article class="card" id="card-profissional">
+        <span class="badge">Mais Popular</span>
+        <h3 class="title">Profissional</h3>
+        <p class="price">R$269 <span>/mês</span></p>
+        <ul class="feat">
+          <li>Todas as funcionalidades do Essencial</li>
+          <li>5 integrações + APIs avançadas</li>
+          <li>Modelos HayromIA personalizados</li>
+          <li>Suporte 24/7 com especialista dedicado</li>
+        </ul>
+        <a class="cta" href="https://buy.stripe.com/test_6oUfZjfnk9uqfrg1Rvbo401" target="_blank" rel="noopener">
+          Comprar Profissional
+        </a>
+      </article>
+
+      <!-- Empresarial -->
+      <article class="card" id="card-empresarial">
+        <h3 class="title">Empresarial</h3>
+        <p class="price">R$479 <span>/mês</span></p>
+        <ul class="feat">
+          <li>Clusters dedicados e SLA premium</li>
+          <li>Integrações ilimitadas e SSO</li>
+          <li>Roadmap conjunto e squads ágeis</li>
+          <li>Consultoria estratégica trimestral</li>
+        </ul>
+        <a class="cta" href="https://buy.stripe.com/test_aFa6oJ1wueOKcf4fIlbo402" target="_blank" rel="noopener">
+          Comprar Empresarial
+        </a>
+      </article>
+    </div>
+
+    <p class="secure"><i></i> Protegido por Stripe • Selo de segurança e antifraude</p>
+
+    <!-- Por que este plano… -->
+    <section class="section">
+      <h2>Por que este plano é o investimento certo</h2>
+      <p>Cada plano foi desenhado para um estágio do seu crescimento, com base técnica sólida e suporte humano especializado.</p>
+
+      <div class="grid">
+        <article class="mini">
+          <h3>Essencial</h3>
+          <p>Perfeito para lançar rápido com identidade própria e operação enxuta.</p>
+          <ul>
+            <li>Logo, cores e domínio configurados no white-label</li>
+            <li>Integrações nativas prontas</li>
+            <li>Métricas essenciais de operação</li>
+            <li>Suporte híbrido com guia de ativação</li>
+          </ul>
+        </article>
+
+        <article class="mini">
+          <h3>Profissional</h3>
+          <p>Para escalar com automação, modelos de IA sob medida e observabilidade.</p>
+          <ul>
+            <li>APIs avançadas e integrações adicionais</li>
+            <li>Modelos HayromIA ajustados ao seu segmento</li>
+            <li>Relatórios de conversão e funil</li>
+            <li>Atendimento 24/7 prioritário</li>
+          </ul>
+        </article>
+
+        <article class="mini">
+          <h3>Empresarial</h3>
+          <p>Governança, squads dedicadas e arquitetura para crescimento multi-time.</p>
+          <ul>
+            <li>Clusters dedicados e SSO corporativo</li>
+            <li>Roadmap conjunto e rituais trimestrais</li>
+            <li>Observabilidade, auditoria e controles avançados</li>
+            <li>Suporte premium com consultoria</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    Checkout seguro via Stripe • Meios de pagamento podem variar conforme sua conta Stripe Brasil.
+  </footer>
+
+  <script>
+    // Destaca o plano quando vier com hash (#essencial, #profissional, #empresarial)
+    const map = {
+      '#essencial': 'card-essencial',
+      '#profissional': 'card-profissional',
+      '#empresarial': 'card-empresarial'
+    };
+    function focusByHash(){
+      const id = map[location.hash];
+      if(!id) return;
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.classList.add('pulse');
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(()=>el.classList.remove('pulse'), 1800);
+    }
+    window.addEventListener('hashchange', focusByHash);
+    window.addEventListener('DOMContentLoaded', focusByHash);
+  </script>
+</body>
+</html>
