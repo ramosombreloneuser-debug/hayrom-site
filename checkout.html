@@ -4,10 +4,72 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Checkout • Hayrom</title>
+  <!-- FAVICON -->
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/logo-hayrom.png?v=3" sizes="32x32">
+  <link rel="apple-touch-icon" href="/logo-hayrom.png?v=3">
+  <meta name="theme-color" content="#0B0E1A">
+  <meta property="og:image" content="/logo-hayrom.png?v=3">
+  <meta name="twitter:image" content="/logo-hayrom.png?v=3">
+
   <meta name="description" content="Escolha seu plano, pague com segurança via Stripe e inicie seu ambiente white-label com a equipe Hayrom.">
   <link rel="icon" href="./hayrom-logo.png" />
 
   <style>
+
+    /* === NAVBAR === */
+.navbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(10,14,25,.65);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.nav-brand img {
+  width: 28px; height: 28px; border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05);
+}
+.nav-brand span {
+  font-weight: 800; letter-spacing: .2px;
+}
+
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 14px; border-radius: 12px;
+  font-weight: 700; font-size: 14px;
+  text-decoration: none; color: #cfe7ff;
+  background: rgba(52,120,255,.12);
+  box-shadow: inset 0 0 0 1px rgba(52,120,255,.35);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.nav-cta:hover {
+  transform: translateY(-1px);
+  background: rgba(52,120,255,.18);
+  box-shadow: inset 0 0 0 1px rgba(52,120,255,.55);
+}
+
+/* Se precisar, garante respiro antes do H1 */
+main, .card, section { /* se tiver main na página, melhor usar main */
+  scroll-margin-top: 84px; /* âncoras não grudam no topo */
+}
+
+
     /* ========= Tokens ========= */
     :root{
       --bg: #070b14;
@@ -157,18 +219,20 @@
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="./hayrom-logo.png" alt="Hayrom">
-        Hayrom Group
-      </div>
-      <div class="support">
-        <a href="https://wa.me/+5577981621007" target="_blank" rel="noopener">Suporte via WhatsApp</a>
-      </div>
-    </div>
-  </header>
+  <!-- Navbar limpa -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a class="nav-brand" href="/landing.html">
+      <img src="/logo-hayrom.png" alt="Hayrom Group" width="28" height="28" />
+      <span>Hayrom Group</span>
+    </a>
+
+    <a class="nav-cta" href="https://wa.me/+5577981621007" target="_blank" rel="noopener">
+      Suporte via WhatsApp
+    </a>
+  </div>
+</header>
+
 
   <!-- ===== Hero ===== -->
   <section class="hero container">
