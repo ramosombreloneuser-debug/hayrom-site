@@ -1,12 +1,12 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "rewrites": [
-    { "source": "/", "destination": "/landing.html" }
+    { "source": "/", "destination": "/public/landing.html" },
+    { "source": "/checkout", "destination": "/public/checkout.html" },
+    { "source": "/thanks", "destination": "/public/thanks.html" }
   ],
   "headers": [
     {
-      "source": "/(.*)\\.(png|jpg|jpeg|svg|webp|ico)",
+      "source": "/(.*)\\.(png|jpg|jpeg|webp|svg)$",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
